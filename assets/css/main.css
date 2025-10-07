@@ -855,6 +855,7 @@ section,
 /*--------------------------------------------------------------
 # Starter Section Section
 --------------------------------------------------------------*/
-.starter-section {
-  /* Add your styles here */
+.footer-bg {
+  width: 100vw;
+  height: auto;
 }
