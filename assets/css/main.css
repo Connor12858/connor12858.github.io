@@ -856,6 +856,8 @@ section,
 # Starter Section Section
 --------------------------------------------------------------*/
 .footer-bg {
-  width: 50%;
+  width: 35%;
+  display: inline-flex;
+  justify-content: center;
   height: auto;
 }
