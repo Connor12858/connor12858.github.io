@@ -310,8 +310,8 @@ h6 {
 }
 
 .sidebar-profile {
-  width: 150px;
-  height: 150px;
+  width: 700px;
+  height: 700px;
   border-radius: 50%;
   object-fit: cover;
   border: 5px solid color-mix(in srgb, var(--default-color), transparent 85%);
