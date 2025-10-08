@@ -309,6 +309,14 @@ h6 {
   background-color: rgba(33, 37, 41, 0.03);
 }
 
+.sidebar-profile {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 5px solid color-mix(in srgb, var(--default-color), transparent 85%);
+}
+
 /*--------------------------------------------------------------
 # Global Footer
 --------------------------------------------------------------*/
