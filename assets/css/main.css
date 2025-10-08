@@ -194,6 +194,14 @@ h6 {
   background-color: color-mix(in srgb, var(--accent-color) 90%, white 15%);
 }
 
+.sidebar-profile {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 5px solid color-mix(in srgb, var(--default-color), transparent 85%);
+}
+
 /*--------------------------------------------------------------
 # Navigation Menu
 --------------------------------------------------------------*/
@@ -307,14 +315,6 @@ h6 {
 .navmenu .dropdown>.dropdown-active {
   display: block;
   background-color: rgba(33, 37, 41, 0.03);
-}
-
-.sidebar-profile {
-  width: 700px;
-  height: 700px;
-  border-radius: 50%;
-  object-fit: cover;
-  border: 5px solid color-mix(in srgb, var(--default-color), transparent 85%);
 }
 
 /*--------------------------------------------------------------
