@@ -857,7 +857,7 @@ section,
 --------------------------------------------------------------*/
 .footer-bg {
   width: 35%;
-  display: flex;
-  justify-content: center;
   height: auto;
+  display: block;
+  margin: auto;
 }
