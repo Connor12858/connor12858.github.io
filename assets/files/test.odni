@@ -1,0 +1,99 @@
+#region usings
+// ScriptVersion: 4.20
+// DO NOT REMOVE CSS. Mandatory keyword for script engine.
+// css_ref OdinCore.dll;
+// css_ref OdinComponents.dll;
+#if version_quatre_six
+// Dummy #if statement to support ODIN version earlier than 4.20
+#endif
+// Default ODIN dll.
+using OdinCore.UI.Client;
+using OdinCore.OpcClient.Variable;
+using OdinCore.OpcClient.Connection;
+using OdinComponents.Script.UI;
+// Default System dll.
+using System;
+using System.Drawing;
+using System.Threading;
+using System.Collections.Generic;
+using System.Windows.Forms;
+// User defined dll.
+#endregion
+
+namespace Odin_Config
+{
+	#region --------- ThorGui watch and graphic configuration --------
+	class ThorGui
+	{
+		private static OdinClientAPI thor = null;
+
+		private static void InitWatch()
+		{
+			thor.ClearValidatedValues();
+
+			thor.AddToWatchWithValue("Watch", "Application:Eeprom:DynamicParameters:AMS:Thresholds:MaxTorque@::MaxTorque", 60);
+			thor.AddToWatchWithValue("Watch", "Application:Eeprom:DynamicParameters:AMS:Thresholds:MinTorque@::MinTorque", 4.19999980926514);
+			thor.AddToWatchWithValue("Watch", "Application:Eeprom:DynamicParameters:AMS:Thresholds:MaxTemp@::MaxTemp", 3.20000004768372);
+			thor.AddToWatchWithValue("Watch", "Application:Eeprom:DynamicParameters:AMS:Thresholds:ECUMap@::ECUMap", 300);
+			thor.AddToWatchWithValue("Watch", "Application:Eeprom:DynamicParameters:AMS:Thresholds:Debug@::Debug", 300);
+			thor.AddToWatchWithValue("Watch", "Application:Eeprom:DynamicParameters:AMS:Thresholds:Damper1Offset@::Damper1Offset", 300);
+			thor.AddToWatchWithValue("Watch", "Application:Eeprom:DynamicParameters:AMS:Thresholds:Damper2Offset@::Damper2Offset", 300);
+			thor.AddToWatchWithValue("Watch", "Application:Eeprom:DynamicParameters:AMS:Thresholds:Damper3Offset@::Damper3Offset", 300);
+			thor.AddToWatchWithValue("Watch", "Application:Eeprom:DynamicParameters:AMS:Thresholds:Damper4Offset@::Damper4Offset", 300);
+
+			thor.ValidateNewValues("Watch");
+		}
+
+		public static void Execute(object objectHost)
+		{
+			if (!(objectHost is OdinClientAPI))
+			{
+				if (objectHost is OdinConnection)
+				{
+					Start(objectHost as OdinConnection);
+				}
+				return;
+			}
+
+			thor = (OdinClientAPI)objectHost;
+			thor.StartSession();
+			InitWatch();
+			Start(thor.Connection);
+		}
+
+		public static void Main(string[] args)
+		{
+			OdinConnection connection = new OdinConnection();
+			connection.Connect("localhost", "tm4.OdinServer.1");
+			Start(connection);
+			connection.Disconnect(true);
+		}
+
+		public static void Start(OdinConnection connection)
+		{
+			Script script = new Script(connection);
+			script.Main();
+		}
+	}  // End of class ThorGui 
+	#endregion
+
+	class Script
+	{
+		private OdinConnection odinConnection;
+		private OdinVarManager varManager;
+		// private OdinVar cSharpVariableName = "Parameter:Drive:MaxSpeed"; // OPC variable mapping sample.
+
+		public Script(OdinConnection connection)
+		{
+			odinConnection = connection;
+			varManager = odinConnection.VarManager;
+			// OPC variable mapping sample.
+			// iA = varManager.MapVariable(OPCSymboleName);
+		}
+
+		public void Main()
+		{
+			//cSharpVariableName.Value=100; // OPC write access sample.
+		}
+	}  // End of user script class.
+}
