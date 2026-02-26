@@ -208,3 +208,22 @@
   document.addEventListener('scroll', navmenuScrollspy);
 
 })();
+
+const birthDate = new Date("2006-01-31"); 
+
+function calculateAge(dob) {
+    const today = new Date();
+    let age = today.getFullYear() - dob.getFullYear();
+    const monthDiff = today.getMonth() - dob.getMonth();
+    
+    if (monthDiff < 0 || (monthDiff === 0 && today.getDate() < dob.getDate())) {
+        age--;
+    }
+    return age;
+}
+
+// console.log(calculateAge(birthDate));
+let allAgeElements = document.querySelectorAll("#age-display");
+allAgeElements.forEach(el => {
+    el.innerText = calculateAge(birthDate);
+});
