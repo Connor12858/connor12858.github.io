@@ -799,12 +799,14 @@ section,
 }
 
 .experience-preview-card img {
+  display: block;
   width: 100%;
   aspect-ratio: 16 / 10;
   object-fit: cover;
 }
 
 .experience-preview-content {
+  flex: 1;
   padding: 20px;
 }
 
