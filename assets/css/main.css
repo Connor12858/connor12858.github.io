@@ -787,7 +787,7 @@ section,
 --------------------------------------------------------------*/
 .experience-preview-card {
   overflow: hidden;
-  background: var(--surface-color);
+  background: #fff;
   border: 1px solid color-mix(in srgb, var(--default-color), transparent 88%);
   border-radius: 6px;
   transition: 0.3s;
@@ -801,7 +801,7 @@ section,
 .experience-preview-card img {
   display: block;
   width: 100%;
-  aspect-ratio: 16 / 10;
+  height: 210px;
   object-fit: cover;
 }
 
@@ -839,6 +839,12 @@ section,
   background: color-mix(in srgb, var(--accent-color), transparent 15%);
   color: #fff;
   gap: 12px;
+}
+
+@media (max-width: 767px) {
+  .experience-preview-card img {
+    height: 190px;
+  }
 }
 
 /*--------------------------------------------------------------
