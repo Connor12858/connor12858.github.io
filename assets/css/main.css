@@ -723,6 +723,23 @@ section,
   transition: 0.3s;
 }
 
+.portfolio .portfolio-placeholder {
+  align-items: center;
+  background: linear-gradient(135deg, #243447, #607d8b);
+  color: rgba(255, 255, 255, 0.9);
+  display: flex;
+  font-size: 15px;
+  font-weight: 600;
+  justify-content: center;
+  min-height: 280px;
+  text-align: center;
+  transition: 0.3s;
+}
+
+.portfolio .portfolio-content:hover .portfolio-placeholder {
+  transform: scale(1.05);
+}
+
 .portfolio .portfolio-content .portfolio-info {
   opacity: 0;
   position: absolute;
